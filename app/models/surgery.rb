@@ -3,7 +3,7 @@ class Surgery < ApplicationRecord
 
   has_many :doctors, through: :doctor_surgeries
 
-  def self.same_day
-    require "pry"; binding.pry
+  def same_day
+    Surgery.where(day: self.day).where.not(id: self.id)
   end
 end

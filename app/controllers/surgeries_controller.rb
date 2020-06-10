@@ -5,6 +5,7 @@ class SurgeriesController < ApplicationController
 
   def show
     @surgery = Surgery.find(params[:id])
+    @surgeries = Surgery.where(day: "#{@surgery.day}")
   end
 
   def new
@@ -19,7 +20,9 @@ class SurgeriesController < ApplicationController
   def update
     @surgery = Surgery.find(params[:id])
     #require "pry"; binding.pry
-    @surgery.doctors.find_by(id: params[:id])
+    doctor = Doctor.find(params[:doctor_id])
+    @surgery.doctors << doctor
+    #@surgery.doctors.find_by(id: params[:id])
     #DoctorSurgery.create(doctor_id: @doctor.id, surgery_id: @surgery.id)
     redirect_to "/surgeries/#{@surgery.id}"
   end

@@ -32,8 +32,12 @@ RSpec.describe "Surgey Show Page" do
 
     expect(page).to have_content("Number of doctors: 2")
 
-    # expect(page).to have_content("Other surgeries happening this day of the week: 2")
+    expect(page).to have_content("Other surgeries happening this day of the week")
+    expect(page).to have_content(neonatal.title)
+
     #
+    # And I see a section of the page that says "Other surgeries happening this day of the week:"
+    # And under that header I see titles of all surgeries that happen on the same day of the week as this surgery.
   end
     it "Add A Doctor To This Surgery" do
 
@@ -65,7 +69,7 @@ RSpec.describe "Surgey Show Page" do
       click_button "Submit"
 
       expect(current_path).to eq("/surgeries/#{appendectomy.id}")
-      expect(page).to have_content(karev.id)
+      expect(page).to have_content(karev.name)
     end
 end
 
@@ -83,5 +87,3 @@ end
 # And I see the name of that doctor listed on the page
 
 #*** section in show page****
-# And I see a section of the page that says "Other surgeries happening this day of the week:"
-# And under that header I see titles of all surgeries that happen on the same day of the week as this surgery.

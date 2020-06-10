@@ -6,6 +6,17 @@
 
 <p>Number of doctors: <%= @surgery.doctors.count %></p> %>
 
+<section class="same_day">
+  <h3>"Other surgeries happening this day of the week"</h3>
+<% @surgery.same_day.each do |surgery| %>
+  <%= surgery.title %>
+  <% end  %>
+  </section>
+
+<% @surgery.doctors.each do |doctor| %>
+  <%= doctor.name %>
+  <% end %>
+
 <%= form_tag "/surgeries/#{@surgery.id}", method: :patch do %>
   <%= label_tag "doctor_id" %>
   <%= text_field_tag "doctor_id" %>
