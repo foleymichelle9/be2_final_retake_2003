@@ -1,0 +1,8 @@
+<h1>This Weeks Surgeries</h1>
+
+<% @surgeries.each do |surgery| %>
+<h2><%= link_to "#{surgery.title}", "/surgeries/#{surgery.id}" %></h2>
+  <%= surgery.title %>
+<% end  %>
+
+<%= link_to 'Add Surgery', '/surgeries/new' %>

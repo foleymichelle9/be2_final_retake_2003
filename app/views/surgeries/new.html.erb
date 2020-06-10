@@ -1,0 +1,10 @@
+<%= form_tag '/surgeries' do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+  <%= label_tag :day %>
+  <%= text_field_tag :day %>
+  <%= label_tag :room %>
+  <%= text_field_tag :room %>
+
+  <%= submit_tag 'Create Surgery' %>
+<% end %>

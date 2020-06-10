@@ -1,0 +1,13 @@
+<h2> <%= @surgery.title %> </h2>
+
+<p><%= @surgery.room %></p>
+<p><%= @surgery.day %></p>
+
+
+<p>Number of doctors: <%= @surgery.doctors.count %></p> %>
+
+<%= form_tag "/surgeries/#{@surgery.id}", method: :patch do %>
+  <%= label_tag "doctor_id" %>
+  <%= text_field_tag "doctor_id" %>
+  <%= submit_tag "Submit" %>
+<% end %>
